@@ -6,6 +6,7 @@ mod interpreter;
 mod verb;
 
 pub use action::Action;
+pub use errors::Error;
 pub use interface::{Adapter, Block};
 pub use interpreter::{Context, Interpreter, Node};
 pub use verb::Verb;
