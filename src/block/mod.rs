@@ -23,3 +23,4 @@ pub use range::RangeBlock;
 pub use shortcutredirect::ShortCutRedirectBlock;
 pub use stopblock::StopBlock;
 pub use strictvariablegetter::StrictVariableGetterBlock;
+pub use substr::SubstringBlock;
