@@ -1,5 +1,6 @@
 use super::prelude::*;
 
+#[derive(Debug)]
 pub struct RandomBlock;
 
 impl Block for RandomBlock {

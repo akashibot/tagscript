@@ -1,6 +1,7 @@
 use super::prelude::*;
 use crate::Verb;
 
+#[derive(Debug)]
 pub struct ShortCutRedirectBlock {
     pub redirect_name: String,
 }

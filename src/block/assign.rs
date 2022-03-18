@@ -1,5 +1,6 @@
 use super::prelude::*;
 
+#[derive(Debug)]
 pub struct AssignmentBlock;
 
 impl Block for AssignmentBlock {

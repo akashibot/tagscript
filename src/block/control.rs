@@ -22,6 +22,7 @@ fn parse_into_output(payload: String, result: Option<bool>) -> Option<String> {
     None
 }
 
+#[derive(Debug)]
 pub struct AnyBlock;
 
 impl Block for AnyBlock {
@@ -47,6 +48,7 @@ impl Block for AnyBlock {
     }
 }
 
+#[derive(Debug)]
 pub struct AllBlock;
 
 impl Block for AllBlock {
@@ -72,6 +74,7 @@ impl Block for AllBlock {
     }
 }
 
+#[derive(Debug)]
 pub struct IfBlock;
 
 impl Block for IfBlock {
