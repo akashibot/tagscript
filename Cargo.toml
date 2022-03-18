@@ -1,6 +1,6 @@
 [package]
 name = "tagscript"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "TagScript is a drop in easy to use string interpreter that lets you provide users with ways of customizing their profiles or chat rooms with interactive text."
 repository = "https://github.com/Friskytool/TagScript-rs"
