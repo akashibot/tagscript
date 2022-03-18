@@ -1,4 +1,4 @@
-use tagscript_rs::Verb;
+use tagscript::Verb;
 
 #[cfg(test)]
 mod tests {

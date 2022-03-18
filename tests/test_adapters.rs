@@ -2,7 +2,7 @@
 mod tests {
     use std::collections::HashMap;
 
-    use tagscript_rs::{block, Adapter, Block, Interpreter, Result, Verb};
+    use tagscript::{block, Adapter, Block, Interpreter, Result, Verb};
 
     fn set_up() -> Interpreter {
         let blocks: Vec<Box<dyn Block>> = vec![Box::from(block::StrictVariableGetterBlock {})];
