@@ -1,7 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use std::collections::HashMap;
-
+    use dashmap::DashMap;
     use tagscript::{block, Adapter, Block, Interpreter, Result, Verb};
 
     fn set_up() -> Interpreter {
@@ -17,7 +16,7 @@ mod tests {
     fn test_string_adapter() {
         let interpreter = set_up();
 
-        let mut seed_variables: HashMap<String, Adapter> = HashMap::new();
+        let seed_variables: DashMap<String, Adapter> = DashMap::new();
 
         seed_variables.insert(
             "test".to_string(),
@@ -61,7 +60,7 @@ mod tests {
     fn test_function_adapter() {
         let interpreter = set_up();
 
-        let mut seed_variables: HashMap<String, Adapter> = HashMap::new();
+        let seed_variables: DashMap<String, Adapter> = DashMap::new();
 
         seed_variables.insert("test".to_string(), Adapter::Function(dummy_function));
 

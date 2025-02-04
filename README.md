@@ -1,7 +1,6 @@
-# TagScript-rs
+# tagscript
+> Modified version from the original Rust port [here](https://github.com/Friskytool/TagScript-rs)
 
-A rust implementation of [Tagscript](https://github.com/JonSnowbd/TagScript).
+Modified for Akashi, improved by @simxnet
 
-TagScript is a drop in easy to use string interpreter that lets you provide users with ways of customizing their profiles or chat rooms with interactive text.
-
-For documentation check out the source repositories [documentation folder](https://github.com/JonSnowbd/TagScript/tree/v2/Documentation)
+feel free to fork and whatever you want idk

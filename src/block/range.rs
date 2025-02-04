@@ -1,4 +1,5 @@
 use super::prelude::*;
+use fastrand;
 
 #[derive(Debug)]
 pub struct RangeBlock;
@@ -20,7 +21,7 @@ impl Block for RangeBlock {
                         let end = parts[1].parse::<f32>()?;
                         Ok(Some(format!(
                             "{}",
-                            rand::random::<f32>() * (end - start) + start
+                            fastrand::f32() * (end - start) + start
                         )))
                     } else {
                         Ok(None)
@@ -32,7 +33,7 @@ impl Block for RangeBlock {
                         let end = parts[1].parse::<i32>()?;
                         Ok(Some(format!(
                             "{}",
-                            rand::random::<i32>() * (end - start) + start
+                            fastrand::i32(start..end)
                         )))
                     } else {
                         Ok(None)

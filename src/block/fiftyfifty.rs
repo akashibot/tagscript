@@ -1,4 +1,5 @@
 use super::prelude::*;
+use fastrand;
 
 #[derive(Debug)]
 pub struct FiftyFiftyBlock;
@@ -11,7 +12,7 @@ impl Block for FiftyFiftyBlock {
 
     fn process(&self, ctx: &mut Context) -> Result<Option<String>> {
         if let Some(payload) = ctx.verb.payload.clone() {
-            Ok(Some(match rand::random::<f32>() < 0.5 {
+            Ok(Some(match fastrand::f32() < 0.5 {
                 true => payload,
                 false => String::from(""),
             }))

@@ -1,8 +1,6 @@
-use std::{
-    collections::HashMap,
-    sync::{Arc, Mutex},
-};
-
+use std::fmt::Display;
+use dashmap::DashMap; // Replaced HashMap with DashMap
+use std::sync::{Arc, Mutex};
 use crate::{errors::Error, Action, Adapter, Block, Result, Verb};
 
 fn build_node_tree(message: String) -> Vec<Node> {
@@ -63,7 +61,7 @@ impl Interpreter {
         });
 
         for i in 0..node_ordered_list.len() {
-            let mut node = &mut node_ordered_list[i];
+            let node = &mut node_ordered_list[i];
             node.verb = Some(Verb::new(
                 &result[node.coordinates.0..node.coordinates.1 + 1].to_string(),
             ));
@@ -136,7 +134,7 @@ impl Interpreter {
     pub fn process(
         &self,
         message: String,
-        seed_variables: Option<HashMap<String, Adapter>>,
+        seed_variables: Option<DashMap<String, Adapter>>, // Replaced HashMap with DashMap
         charlimit: Option<usize>,
     ) -> Result<Response> {
         let response = Arc::new(Mutex::new(Response::default()));
@@ -168,16 +166,16 @@ pub struct Context {
 #[derive(Debug, Clone)]
 pub struct Response {
     pub body: Option<String>,
-    pub actions: HashMap<String, Action>,
-    pub variables: HashMap<String, Adapter>,
+    pub actions: DashMap<String, Action>, // Replaced HashMap with DashMap
+    pub variables: DashMap<String, Adapter>, // Replaced HashMap with DashMap
 }
 
 impl Default for Response {
     fn default() -> Self {
         Self {
             body: None,
-            actions: HashMap::new(),
-            variables: HashMap::new(),
+            actions: DashMap::new(), // Replaced HashMap with DashMap
+            variables: DashMap::new(), // Replaced HashMap with DashMap
         }
     }
 }
@@ -189,13 +187,14 @@ pub struct Node {
     verb: Option<Verb>,
 }
 
-impl ToString for Node {
-    fn to_string(&self) -> String {
-        format!(
+impl Display for Node {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let str = format!(
             "{:#?} at {:#?}",
             self.verb.as_ref().map(|v| v.to_string()),
             self.coordinates
-        )
+        );
+        write!(f, "{}", str)
     }
 }
 

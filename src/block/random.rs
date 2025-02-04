@@ -1,4 +1,5 @@
 use super::prelude::*;
+use fastrand;
 
 #[derive(Debug)]
 pub struct RandomBlock;
@@ -12,7 +13,10 @@ impl Block for RandomBlock {
     fn process(&self, ctx: &mut Context) -> Result<Option<String>> {
         if let Some(payload) = ctx.verb.payload.clone() {
             match helper_split(payload, true) {
-                Some(opts) => Ok(Some(opts[rand::random::<usize>() % opts.len()].to_string())),
+                Some(opts) => {
+                    let index = fastrand::usize(..opts.len());
+                    Ok(Some(opts[index].to_string()))
+                }
                 None => Ok(None),
             }
         } else {
